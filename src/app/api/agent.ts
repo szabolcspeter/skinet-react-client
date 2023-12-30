@@ -16,8 +16,17 @@ const Catalog = {
     details: (id: number) => requests.get(`products/${id}`)
 }
 
+const TestErrors = {
+    get400Error: () => requests.get('buggy/badrequest'),
+    get401Error: () => requests.get('buggy/unauthorised'),
+    get404Error: () => requests.get('buggy/notfound'),
+    get500Error: () => requests.get('buggy/servererror'),
+    getValidationError: () => requests.get('buggy/validationerror')
+}
+
 const agent = {
-    Catalog
+    Catalog,
+    TestErrors
 }
 
 export default agent;
