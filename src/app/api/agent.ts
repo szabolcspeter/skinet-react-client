@@ -30,7 +30,8 @@ axios.interceptors.response.use(response => {
             toast.error(data.message);
             break;
         case 500:
-            router.navigate('/servererror', {state: {error: data}})
+            router.navigate('/servererror', {state: {error: data}});
+            toast.error(data.message);
             break;
         default:
             break;

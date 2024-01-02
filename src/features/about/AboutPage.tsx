@@ -8,7 +8,10 @@ export default function AboutPage() {
     function getValidationError() {
         agent.TestErrors.getValidationError()
             .then(() => console.log('should not see this!'))
-            .catch(error => setValidationErrors(error));
+            .catch((error) => {
+                console.log(error);
+                setValidationErrors(error);
+            });
     }
 
     return (
@@ -18,8 +21,7 @@ export default function AboutPage() {
                 <Button onClick={() => agent.TestErrors.get500Error().catch(error => console.log(error))} variant={'contained'}>Test 500 error</Button>
                 <Button onClick={() => agent.TestErrors.get404Error().catch(error => console.log(error))} variant={'contained'}>Test 404 error</Button>
                 <Button onClick={() => agent.TestErrors.get400Error().catch(error => console.log(error))} variant={'contained'}>Test 400 error</Button>
-                <Button onClick={getValidationError} variant={'contained'}>Test 400 validation
-                    error</Button>
+                <Button onClick={getValidationError} variant={'contained'}>Test 400 validation error</Button>
                 <Button onClick={() => agent.TestErrors.get401Error().catch(error => console.log(error))} variant={'contained'}>Test 401 error</Button>
             </ButtonGroup>
             {validationErrors.length > 0 &&
