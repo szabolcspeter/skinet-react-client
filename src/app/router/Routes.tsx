@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             {path: 'about', element: <AboutPage />},
             {path: 'contact', element: <ContactPage />},
             {path: 'servererror', element: <ServerError />},
-            {path: 'notfound', element: <NotFound />},
+            {path: 'notfound', element: <NotFound message='Not Found'/>},
             {path: '*', element: <Navigate replace to='/notfound' state={{error: {message: 'Oops - we could not find what your are looking for!'}}} />}
         ]
     }
