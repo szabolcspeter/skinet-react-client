@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 interface Props { 
-	message: string 
+	message?: string 
 }
 
-export default function NotFound({message}: Props) {
+export default function NotFound({message = 'Not Found'}: Props) {
     const { state } = useLocation();
 
     useEffect(() => {
