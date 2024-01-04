@@ -12,6 +12,7 @@ export default function NotFound({message = 'Not Found'}: Props) {
 
     useEffect(() => {
         state?.error ? toast.error(state.error.message) : toast.error(message);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
